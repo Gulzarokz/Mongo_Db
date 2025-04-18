@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import connectDb from './Db/database.js';
 import bodyParser from 'body-parser';
 import userRouter from './router/User.js';
+import todoRouter from './router/todo.js'
 const app = express();
 dotenv.config();
 connectDb();
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/todo", todoRouter );
 
 
 

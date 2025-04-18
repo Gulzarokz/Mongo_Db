@@ -56,11 +56,11 @@ export const login = async (req, res) =>{
             })
         }
 
-        const isPasswordMatch = bcrypt.compare(password, user.password);
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
         if(!isPasswordMatch){
             return res.status(403).json({
                 success : false,
-                message : "email or password not ;;matched",
+                message : "email or password not matched",
             });
         }
         return res.json({
